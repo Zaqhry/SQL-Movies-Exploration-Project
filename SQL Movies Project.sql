@@ -11,26 +11,6 @@ FROM Movies
 
 ---------------------------------------------------------------------------------------------------
 
-
---Score,Budget,Gross,Profit,Runtime Per Movie vs Average Across All Movies 
-
-SELECT Name,
-       Score,
-       (SELECT ROUND(AVG(Score),2) FROM Movies) AvgScore,
-       Budget,
-       (SELECT ROUND(AVG(Budget),2) FROM Movies) AvgBudget,
-       Gross,
-       (SELECT ROUND(AVG(Gross),2) FROM Movies) AvgGross,
-       (Gross - Budget) Profit,
-       (SELECT ROUND(AVG(Gross - Budget),2) FROM Movies) AvgProfit,
-       Runtime,
-       (SELECT ROUND(AVG(Runtime),2) FROM Movies) AvgRuntime
-FROM Movies 
-
-
-
----------------------------------------------------------------------------------------------------
-
 CREATE VIEW B AS
 (
 SELECT TOP 10 Name,
@@ -74,7 +54,7 @@ FROM W
 
 ---------------------------------------------------------------------------------------------------
 
---Score,Genre,Rating,Budget,Gross,Profit,Runtime For Top 10 Best Movies vs Average Across All Movies 
+--Score,Genre,Rating,Budget,Gross,Profit,Runtime For Top 10 Most Profitable Movies vs Average Across All Movies 
 
 SELECT TOP 10 Year,
 	      Name,
@@ -97,7 +77,7 @@ FROM Movies
 
 
 
---Score,Genre,Rating,Budget,Gross,Profit,Runtime For Top 10 Worst Movies vs Average Across All Movies 
+--Score,Genre,Rating,Budget,Gross,Profit,Runtime For Top 10 Least Profitable Movies vs Average Across All Movies 
 
 SELECT TOP 10 Year,
 	      Name,
@@ -122,6 +102,23 @@ WHERE Gross < Budget
 
 
 ---------------------------------------------------------------------------------------------------
+
+--Score,Budget,Gross,Profit,Runtime Per Movie vs Average Across All Movies 
+
+SELECT Name,
+       Score,
+       (SELECT ROUND(AVG(Score),2) FROM Movies) AvgScore,
+       Budget,
+       (SELECT ROUND(AVG(Budget),2) FROM Movies) AvgBudget,
+       Gross,
+       (SELECT ROUND(AVG(Gross),2) FROM Movies) AvgGross,
+       (Gross - Budget) Profit,
+       (SELECT ROUND(AVG(Gross - Budget),2) FROM Movies) AvgProfit,
+       Runtime,
+       (SELECT ROUND(AVG(Runtime),2) FROM Movies) AvgRuntime
+FROM Movies 
+
+
 
 --Movies that made a negative profit 
 
