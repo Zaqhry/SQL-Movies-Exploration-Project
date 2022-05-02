@@ -146,7 +146,7 @@ FROM Movies
 
 
 
---How much money Writers have made with all movies combined 
+--How much profit Writers have made with all movies combined 
 
 SELECT Writer,
        SUM(Gross - Budget) Profit 
@@ -156,7 +156,7 @@ FROM Movies
 
 
 
---How much money Directors have made with all movies combined
+--How much profit Directors have made with all movies combined
 
 SELECT Director,
        SUM(Gross - Budget) Profit 
@@ -242,7 +242,7 @@ FROM Movies
 
 
 
---Most movies made per genre 
+--# of movies made per genre 
 
 SELECT Genre,
        COUNT(Name) TotalMovies 
@@ -252,7 +252,7 @@ FROM Movies
 
 
 
---Company that has made the most profit off of all movies 
+--Profit made by company
 	
 SELECT Company,
        COUNT(Name) TotalMovies,
